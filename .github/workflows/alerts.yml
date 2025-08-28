@@ -18,8 +18,16 @@ jobs:
 
       - name: Install dependencies
         run: pip install requests feedparser beautifulsoup4 lxml
-        
+
       - name: Run fetch script
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         run: python scripts/fetch-papers.py
+
+      - name: Commit updated posted-ids.json
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add posted-ids.json
+          git diff --cached --quiet || git commit -m "Update posted-ids.json"
+          git push
