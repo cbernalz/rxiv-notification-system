@@ -1,0 +1,12 @@
+{
+  "test": {
+    "keywords": [],
+    "authors": ["Christian O. Bernal Zelaya"],
+    "slack_channel": "#test",
+    "sources": [
+      {"type": "arxiv"},
+      {"type": "rss", "url": "https://www.biorxiv.org/rss/latest.xml"},
+      {"type": "rss", "url": "https://www.medrxiv.org/rss/latest.xml"}
+    ]
+  }
+}
