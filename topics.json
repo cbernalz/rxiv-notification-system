@@ -8,5 +8,16 @@
       {"type": "rss", "url": "https://www.biorxiv.org/rss/latest.xml"},
       {"type": "rss", "url": "https://www.medrxiv.org/rss/latest.xml"}
     ]
+  },
+  
+  "Infectious-Disease-Forecasting": {
+     "keywords" : ["infectious disease", "forecasting", "epidemic prediction"],
+     "authors": [],
+     "slack_channel": "#infectious-disease-forecasting",
+     "sources": [
+       {"type": "arxiv"},
+       {"type": "rss", "url": "https://www.biorxiv.org/rss/latest.xml"},
+       {"type": "rss", "url": "https://www.medrxiv.org/rss/latest.xml"}
+     ]
   }
 }

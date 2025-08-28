@@ -80,15 +80,15 @@ def fetch_rss_papers(url, keywords, authors_filter=None):
 # -----------------------
 
 def post_to_slack(channel, papers):
-    slack_token = os.environ.get("SLACK_BOT_TOKEN")
-    if not slack_token:
-        print("Missing Slack bot token")
-        return
+    #slack_token = os.environ.get("SLACK_BOT_TOKEN")
+    #if not slack_token:
+    #    print("Missing Slack bot token")
+    #    return
 
-    headers = {
-        "Authorization": f"Bearer {slack_token}",
-        "Content-Type": "application/json"
-    }
+    #headers = {
+    #    "Authorization": f"Bearer {slack_token}",
+    #    "Content-Type": "application/json"
+    #}
 
     for paper in papers:
         if paper["id"] in posted_ids:
@@ -108,16 +108,18 @@ def post_to_slack(channel, papers):
             "text": message
         }
 
-        r = requests.post("https://slack.com/api/chat.postMessage", headers=headers, json=payload)
-        if r.status_code != 200 or not r.json().get("ok", False):
-            print(f"Slack API error: {r.text}")
+        #r = requests.post("https://slack.com/api/chat.postMessage", headers=headers, json=payload)
+        #if r.status_code != 200 or not r.json().get("ok", False):
+        #    print(f"Slack API error: {r.text}")
+
+        print(f"Posting to Slack channel {channel}:\n{message}\n")
 
         # Mark as posted
         posted_ids.add(paper["id"])
         
     # Save updated list back to file
-    with open(POSTED_FILE, "w") as f:
-        json.dump(list(posted_ids), f)
+    #with open(POSTED_FILE, "w") as f:
+    #    json.dump(list(posted_ids), f)
 
 # -----------------------
 # Main
