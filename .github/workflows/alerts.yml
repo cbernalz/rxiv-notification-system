@@ -11,6 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Cache posted IDs
+        uses: actions/cache@v3
+        with:
+          path: posted-ids.json
+          key: posted-ids
+          restore-keys: |
+            posted-ids
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -24,10 +32,3 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
         run: python scripts/fetch-papers.py
 
-      - name: Commit updated posted-ids.json
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add posted-ids.json
-          git diff --cached --quiet || git commit -m "Update posted-ids.json"
-          git push
