@@ -22,4 +22,4 @@ jobs:
       - name: Run fetch script
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-        run: python scripts/fetch_papers.py
+        run: python scripts/fetch-papers.py
