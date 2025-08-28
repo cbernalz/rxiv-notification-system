@@ -80,10 +80,15 @@ def fetch_rss_papers(url, keywords, authors_filter=None):
 # -----------------------
 
 def post_to_slack(channel, papers):
-    webhook_url = os.environ.get("SLACK_WEBHOOK_URL")
-    if not webhook_url:
-        print("Missing Slack webhook URL")
+    slack_token = os.environ.get("SLACK_BOT_TOKEN")
+    if not slack_token:
+        print("Missing Slack bot token")
         return
+
+    headers = {
+        "Authorization": f"Bearer {slack_token}",
+        "Content-Type": "application/json"
+    }
 
     for paper in papers:
         if paper["id"] in posted_ids:
@@ -95,10 +100,17 @@ def post_to_slack(channel, papers):
             f"*{paper['title']}*\n"
             f"_Authors_: {authors}\n"
             f"_Published_: {published}\n"
-            f"{paper['link']}"
+            f"_Link_: {paper['link']}\n"
+            f"_Summary_: {paper['summary'][:200]}...\n"
         )
-        payload = {"text": message}
-        requests.post(webhook_url, json=payload)
+        payload = {
+            "channel": channel,
+            "text": message
+        }
+
+        r = requests.post("https://slack.com/api/chat.postMessage", headers=headers, json=payload)
+        if r.status_code != 200 or not r.json().get("ok", False):
+            print(f"Slack API error: {r.text}")
 
         # Mark as posted
         posted_ids.add(paper["id"])
