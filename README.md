@@ -13,7 +13,7 @@ If you’d like a new channel added to the bot, please **open a GitHub Issue** i
 - If the channel does not exist yet, please create it in Slack first.
 
 ### 2. Keywords (Optional)
-- A list of keywords the bot should use to filter relevant papers.
+- A list of keywords the bot should use to filter relevant papers. **This will use the AND query command**
 - Example:
   ```json
   "keywords": ["infectious disease", "forecasting", "epidemic prediction"]
@@ -31,7 +31,7 @@ If you’d like a new channel added to the bot, please **open a GitHub Issue** i
 
 ---
 
-## 📝 Example Request
+## Example Request
 
 When you create an issue, structure it like this (or use the template in GitHub Issues):
 
@@ -49,7 +49,7 @@ When you create an issue, structure it like this (or use the template in GitHub 
 
 ---
 
-## ✅ What Happens Next
+## What Happens Next
 1. An admin will review your request.
 2. If approved, your configuration will be added to the bot and the Slack workspace.
 3. You must add the new channel on your end by going to **Channels -> Add channels -> Browse channels -> Join(the name of the channel will be here)**
