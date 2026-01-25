@@ -19,5 +19,26 @@
        {"type": "rss", "url": "https://www.biorxiv.org/rss/latest.xml"},
        {"type": "rss", "url": "https://www.medrxiv.org/rss/latest.xml"}
      ]
+  },
+
+  "Infectious-Disease-General": {
+     "keywords" : ["infectious disease"],
+     "authors": [],
+     "slack_channel": "#infectious-disease-general",
+     "sources": [
+       {"type": "arxiv"},
+       {"type": "rss", "url": "https://www.biorxiv.org/rss/latest.xml"},
+       {"type": "rss", "url": "https://www.medrxiv.org/rss/latest.xml"}
+     ]
+  },
+
+  "Economic-Structural-Bayesian": {
+    "keywords": ["stochastic", "econ.EM"],
+    "authors": [],
+    "slack_channel": "#stochastic-economics",
+    "sources": [
+      {"type": "arxiv"}
+    ]
   }
+
 }
