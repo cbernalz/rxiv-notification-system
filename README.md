@@ -10,7 +10,6 @@ If you’d like a new channel added to the bot, please **open a GitHub Issue** i
 
 ### 1. Desired Channel Name
 - The Slack channel where the papers should be posted (e.g., `#infectious-disease-forecasting`).
-- If the channel does not exist yet, please create it in Slack first.
 
 ### 2. Keywords (Optional)
 - A list of keywords the bot should use to filter relevant papers. **This will use the AND query command**
